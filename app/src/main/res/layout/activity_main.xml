@@ -1,155 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/header_main"
-        android:padding="24dp"
+    <RelativeLayout
+        android:id="@+id/main_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true">
+        android:layout_height="0dp"
+        android:layout_weight="6">
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/header_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="APPOLLUTION"
-            android:textSize="18sp"/>
+            android:layout_alignParentTop="true"
+            android:padding="24dp">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="APPOLLUTION"
+                android:textSize="18sp" />
 
-    <RelativeLayout
-        android:id="@+id/seekbar_zone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/header_main">
+        </LinearLayout>
 
-        <SeekBar
-            android:id="@+id/sb_km"
-            android:layout_width="fill_parent"
+        <RelativeLayout
+            android:id="@+id/seekbar_zone"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:max="25"
-            android:padding="24dp"
-            android:progress="1" />
-
-        <TextView
-            android:id="@+id/tv_kmmin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/sb_km"
             android:layout_alignParentStart="true"
-            android:paddingLeft="16dp"
-            android:text="Min: 0KM"
-            android:textSize="12sp" />
+            android:layout_below="@+id/header_main">
 
-        <TextView
-            android:id="@+id/tv_kmmax"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/sb_km"
-            android:paddingRight="16dp"
-            android:text="Max: 25KM"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/tv_kmchoice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_below="@id/sb_km"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/checkbox_zone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="18dp"
-        android:layout_below="@id/seekbar_zone">
-
-        <LinearLayout
-            android:id="@+id/parcs_ll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <CheckBox
-            android:id="@+id/parc_cb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <SeekBar
+                android:id="@+id/sb_km"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:max="25"
+                android:padding="24dp"
+                android:progress="1" />
 
             <TextView
+                android:id="@+id/tv_kmmin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Parcs"
-                android:textSize="12sp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/balade_ll"
-            android:layout_toEndOf="@+id/parcs_ll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/sb_km"
+                android:paddingLeft="16dp"
+                android:text="Min: 0KM"
+                android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/tv_kmmax"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Balades vertes"
-                android:textSize="12sp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/run_ll"
-            android:layout_toRightOf="@+id/balade_ll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/sb_km"
+                android:paddingRight="16dp"
+                android:text="Max: 25KM"
+                android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/tv_kmchoice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Exercice physique"
-                android:textSize="12sp"/>
+                android:layout_below="@id/sb_km"
+                android:layout_centerInParent="true" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/search_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/checkbox_zone"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:text="Lancer la recherche"
-        android:textSize="12sp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/search_btn">
-
-        <TextView
-            android:id="@+id/result_tv"
+        <RelativeLayout
+            android:id="@+id/checkbox_zone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_below="@id/seekbar_zone"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="16dp"
+            android:padding="16dp">
 
-</RelativeLayout>
+            <LinearLayout
+                android:id="@+id/parcs_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/parc_cb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Parcs"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/balade_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/parcs_ll">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Balades vertes"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/run_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/balade_ll">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Exercice physique"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/search_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkbox_zone"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="Lancer la recherche"
+            android:textSize="12sp" />
+
+        <FrameLayout
+            android:id="@+id/fragment_frame"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            >
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
